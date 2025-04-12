@@ -1,0 +1,504 @@
+<script>
+	import { onMount } from 'svelte';
+
+	// Animation for fading in elements
+	let visible = false;
+
+	onMount(() => {
+		visible = true;
+
+		// Add smooth scrolling for anchor links
+		const links = document.querySelectorAll('a[href^="#"]');
+
+		links.forEach((link) => {
+			link.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				const targetId = this.getAttribute('href');
+				const targetElement = document.querySelector(targetId);
+
+				if (targetElement) {
+					window.scrollTo({
+						top: targetElement.offsetTop - 80, // Offset for fixed header
+						behavior: 'smooth'
+					});
+				}
+			});
+		});
+	});
+
+	// Services offered
+	const services = [
+		{
+			title: 'Digital Transformation',
+			description: 'Reimagine your business for the digital age',
+			icon: '🔄'
+		},
+		{
+			title: 'Cloud Solutions',
+			description: 'Scalable infrastructure for modern enterprises',
+			icon: '☁️'
+		},
+		{
+			title: 'AI Integration',
+			description: 'Intelligent solutions for complex problems',
+			icon: '🧠'
+		},
+		{
+			title: 'Custom Development',
+			description: 'Tailored software for your unique needs',
+			icon: '💻'
+		}
+	];
+
+	// Prevent default on empty links
+	function handleClick(e) {
+		e.preventDefault();
+	}
+</script>
+
+<div class="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 font-sans text-gray-100">
+	<!-- Navigation -->
+	<nav class="bg-opacity-90 fixed z-10 w-full bg-gray-900">
+		<div class="container mx-auto flex items-center justify-between px-6 py-4">
+			<div class="flex items-center">
+				<span class="text-2xl font-bold text-blue-500">A2Z</span>
+				<span class="text-2xl font-bold">Software</span>
+			</div>
+			<div class="hidden space-x-8 md:flex">
+				<a href="#about" class="transition hover:text-blue-400">About</a>
+				<a href="#services" class="transition hover:text-blue-400">Services</a>
+				<a href="#solutions" class="transition hover:text-blue-400">Solutions</a>
+				<a href="#contact" class="transition hover:text-blue-400">Contact</a>
+			</div>
+			<button class="focus:outline-none md:hidden" aria-label="Toggle Menu">
+				<svg
+					class="h-6 w-6"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"
+					></path>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="px-6 pt-32 pb-24">
+		<div class="container mx-auto text-center">
+			<h1
+				class="mb-6 text-5xl font-bold md:text-6xl {visible
+					? 'opacity-100'
+					: 'opacity-0'} transition-opacity duration-1000"
+			>
+				Innovating Tomorrow's Technology Today
+			</h1>
+			<p
+				class="mx-auto mb-12 max-w-3xl text-xl text-gray-300 md:text-2xl {visible
+					? 'opacity-100'
+					: 'opacity-0'} transition-opacity delay-300 duration-1000"
+			>
+				A2ZSoftware delivers cutting-edge solutions at the intersection of technology and business,
+				empowering organizations to thrive in the digital landscape.
+			</p>
+			<div
+				class="flex flex-col justify-center gap-4 sm:flex-row {visible
+					? 'opacity-100'
+					: 'opacity-0'} transition-opacity delay-500 duration-1000"
+			>
+				<!-- Changed these buttons to anchor links pointing to #solutions and #contact -->
+				<a
+					href="#solutions"
+					class="rounded-lg bg-blue-600 px-8 py-3 font-bold text-white transition hover:bg-blue-700"
+				>
+					Explore Solutions
+				</a>
+				<a
+					href="#contact"
+					class="rounded-lg border-2 border-blue-500 bg-transparent px-8 py-3 font-bold text-blue-400 transition hover:bg-blue-500 hover:text-white"
+				>
+					Contact Us
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="bg-opacity-70 bg-gray-800 py-20">
+		<div class="container mx-auto px-6">
+			<div class="flex flex-col items-center md:flex-row">
+				<div class="mb-10 md:mb-0 md:w-1/2">
+					<div class="bg-opacity-20 mb-4 inline-block rounded-lg bg-blue-600 p-2">
+						<span class="font-bold text-blue-400">About Us</span>
+					</div>
+					<h2 class="mb-6 text-4xl font-bold">Pioneering the Future of Technology</h2>
+					<p class="mb-6 text-gray-300">
+						At A2ZSoftware, we're a growing startup determined to redefine what's possible in the
+						tech industry. Guided by a spirit of innovation and the drive to offer unique solutions,
+						we help businesses stay competitive in a digital-first world.
+					</p>
+					<p class="mb-6 text-gray-300">
+						Our close-knit team merges deep technical expertise with entrepreneurial insight,
+						crafting tailored strategies that address current challenges and anticipate new market
+						opportunities. We’re committed to pushing boundaries and delivering transformative
+						outcomes.
+					</p>
+					<p class="mb-6 text-gray-300">
+						Although we’re still establishing our footprint, we strive to earn our clients’ trust by
+						streamlining processes, modernizing systems, and enhancing operational efficiency. At
+						A2ZSoftware, we’re passionate about tackling difficult problems and turning them into
+						innovative solutions.
+					</p>
+					<p class="mb-6 text-gray-300">
+						Our culture is built on collaboration, continuous learning, and a commitment to
+						excellence. Every project begins with open communication and ends with tangible results.
+						By embracing emerging technologies and forward-thinking strategies, we believe we can
+						empower businesses to become more adaptable, sustainable, and prepared for the future.
+					</p>
+
+					<div class="mt-8 flex flex-wrap gap-8">
+						<div class="flex items-center">
+							<div class="mr-4 text-4xl text-blue-500">10+</div>
+							<div class="text-sm text-gray-400">Years of<br />Experience</div>
+						</div>
+						<div class="flex items-center">
+							<div class="mr-4 text-4xl text-blue-500">300+</div>
+							<div class="text-sm text-gray-400">Projects<br />Completed</div>
+						</div>
+						<div class="flex items-center">
+							<div class="mr-4 text-4xl text-blue-500">98%</div>
+							<div class="text-sm text-gray-400">Client<br />Satisfaction</div>
+						</div>
+					</div>
+				</div>
+				<div class="md:w-1/2 md:pl-12">
+					<div class="grid grid-cols-2 gap-4">
+						<div
+							class="flex h-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-700 to-purple-700 p-6"
+						>
+							<span class="text-5xl">🚀</span>
+						</div>
+						<div
+							class="flex h-48 items-center justify-center rounded-lg bg-gradient-to-br from-purple-700 to-pink-700 p-6"
+						>
+							<span class="text-5xl">💡</span>
+						</div>
+						<div
+							class="flex h-48 items-center justify-center rounded-lg bg-gradient-to-br from-pink-700 to-red-700 p-6"
+						>
+							<span class="text-5xl">⚙️</span>
+						</div>
+						<div
+							class="flex h-48 items-center justify-center rounded-lg bg-gradient-to-br from-blue-700 to-green-700 p-6"
+						>
+							<span class="text-5xl">🔍</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section id="services" class="bg-gray-900 py-20">
+		<div class="container mx-auto px-6">
+			<div class="mb-16 text-center">
+				<div class="bg-opacity-20 mb-4 inline-block rounded-lg bg-blue-600 p-2">
+					<span class="font-bold text-blue-400">Our Services</span>
+				</div>
+				<h2 class="mb-6 text-4xl font-bold">Comprehensive Technology Solutions</h2>
+				<p class="mx-auto max-w-3xl text-gray-300">
+					We offer a wide range of services designed to help businesses leverage technology for
+					growth, efficiency, and innovation.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+				{#each services as service}
+					<div
+						class="bg-opacity-50 rounded-lg bg-gray-800 p-8 transition-all duration-300 hover:-translate-y-2 hover:transform hover:bg-gray-700"
+					>
+						<div class="mb-6 text-4xl">{service.icon}</div>
+						<h3 class="mb-4 text-2xl font-bold">{service.title}</h3>
+						<p class="text-gray-300">{service.description}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Solutions Section -->
+	<section id="solutions" class="bg-gradient-to-r from-blue-900 to-purple-900 py-20">
+		<div class="container mx-auto px-6">
+			<div class="mb-16 text-center">
+				<div class="bg-opacity-20 mb-4 inline-block rounded-lg bg-blue-500 p-2">
+					<span class="font-bold text-blue-300">Our Approach</span>
+				</div>
+				<h2 class="mb-6 text-4xl font-bold">Innovative Solutions for Complex Challenges</h2>
+				<p class="mx-auto max-w-3xl text-gray-300">
+					We combine creativity with technical expertise to develop solutions that address your most
+					pressing business challenges.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+				<div class="bg-opacity-30 rounded-lg bg-gray-800 p-8">
+					<h3 class="mb-4 text-2xl font-bold">Discovery</h3>
+					<p class="mb-6 text-gray-300">
+						We begin by understanding your business, challenges, and goals through in-depth
+						consultation and analysis.
+					</p>
+					<div class="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500">
+						<span class="text-2xl">1</span>
+					</div>
+				</div>
+
+				<div class="bg-opacity-30 rounded-lg bg-gray-800 p-8">
+					<h3 class="mb-4 text-2xl font-bold">Innovation</h3>
+					<p class="mb-6 text-gray-300">
+						Our experts design tailored solutions leveraging cutting-edge technologies and
+						methodologies.
+					</p>
+					<div class="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500">
+						<span class="text-2xl">2</span>
+					</div>
+				</div>
+
+				<div class="bg-opacity-30 rounded-lg bg-gray-800 p-8">
+					<h3 class="mb-4 text-2xl font-bold">Implementation</h3>
+					<p class="mb-6 text-gray-300">
+						We bring solutions to life with meticulous development, testing, and deployment
+						processes.
+					</p>
+					<div class="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500">
+						<span class="text-2xl">3</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section id="contact" class="bg-gradient-to-r from-blue-800 to-purple-900 py-20">
+		<div class="container mx-auto px-6 text-center">
+			<h2 class="mb-8 text-4xl font-bold">Ready to Transform Your Business?</h2>
+			<p class="mx-auto mb-12 max-w-3xl text-xl text-gray-300">
+				Let's collaborate to create innovative solutions that drive your business forward in the
+				digital age.
+			</p>
+			<form class="mx-auto max-w-lg">
+				<div class="mb-6 flex flex-col gap-4 md:flex-row">
+					<div class="flex-1">
+						<label for="name" class="sr-only">Your Name</label>
+						<input
+							type="text"
+							id="name"
+							placeholder="Your Name"
+							class="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
+						/>
+					</div>
+					<div class="flex-1">
+						<label for="email" class="sr-only">Your Email</label>
+						<input
+							type="email"
+							id="email"
+							placeholder="Your Email"
+							class="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
+						/>
+					</div>
+				</div>
+				<div>
+					<label for="message" class="sr-only">Your Message</label>
+					<textarea
+						id="message"
+						placeholder="Your Message"
+						rows="4"
+						class="mb-6 w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-blue-500 focus:outline-none"
+					></textarea>
+				</div>
+				<button
+					type="submit"
+					class="w-full rounded-lg bg-blue-600 px-8 py-3 font-bold text-white transition hover:bg-blue-700"
+				>
+					Get in Touch
+				</button>
+			</form>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-900 py-12">
+		<div class="container mx-auto px-6">
+			<div class="flex flex-col justify-between md:flex-row">
+				<div class="mb-8 md:mb-0">
+					<div class="mb-4 flex items-center">
+						<span class="text-2xl font-bold text-blue-500">A2Z</span>
+						<span class="text-2xl font-bold">Software</span>
+					</div>
+					<p class="max-w-xs text-gray-400">
+						Transforming businesses through innovative technology solutions.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+					<div>
+						<h3 class="mb-4 text-lg font-bold">Company</h3>
+						<ul class="space-y-2">
+							<li><a href="#about" class="text-gray-400 transition hover:text-white">About</a></li>
+							<li>
+								<a href="/careers" class="text-gray-400 transition hover:text-white">Careers</a>
+							</li>
+							<li><a href="/blog" class="text-gray-400 transition hover:text-white">Blog</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="mb-4 text-lg font-bold">Services</h3>
+						<ul class="space-y-2">
+							<li>
+								<a href="/services/development" class="text-gray-400 transition hover:text-white"
+									>Development</a
+								>
+							</li>
+							<li>
+								<a href="/services/consulting" class="text-gray-400 transition hover:text-white"
+									>Consulting</a
+								>
+							</li>
+							<li>
+								<a href="/services/cloud" class="text-gray-400 transition hover:text-white"
+									>Cloud Solutions</a
+								>
+							</li>
+							<li>
+								<a href="/services/ai-ml" class="text-gray-400 transition hover:text-white"
+									>AI & ML</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="mb-4 text-lg font-bold">Connect</h3>
+						<ul class="space-y-2">
+							<li>
+								<a href="#contact" class="text-gray-400 transition hover:text-white">Contact</a>
+							</li>
+							<li>
+								<a
+									href="https://linkedin.com"
+									class="text-gray-400 transition hover:text-white"
+									target="_blank"
+									rel="noopener noreferrer">LinkedIn</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://twitter.com"
+									class="text-gray-400 transition hover:text-white"
+									target="_blank"
+									rel="noopener noreferrer">Twitter</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://github.com"
+									class="text-gray-400 transition hover:text-white"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="mt-12 flex flex-col items-center justify-between border-t border-gray-800 pt-8 md:flex-row"
+			>
+				<p class="text-gray-500">© 2025 A2Z Software Inc. All rights reserved.</p>
+				<div class="mt-4 flex space-x-6 md:mt-0">
+					<a
+						href="https://facebook.com"
+						class="text-gray-400 transition hover:text-white"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Facebook"
+					>
+						<svg
+							class="h-6 w-6"
+							fill="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+							/>
+						</svg>
+					</a>
+					<a
+						href="https://twitter.com"
+						class="text-gray-400 transition hover:text-white"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Twitter"
+					>
+						<svg
+							class="h-6 w-6"
+							fill="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+							/>
+						</svg>
+					</a>
+					<a
+						href="https://github.com"
+						class="text-gray-400 transition hover:text-white"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="GitHub"
+					>
+						<svg
+							class="h-6 w-6"
+							fill="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+							/>
+						</svg>
+					</a>
+					<a
+						href="https://linkedin.com"
+						class="text-gray-400 transition hover:text-white"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="LinkedIn"
+					>
+						<svg
+							class="h-6 w-6"
+							fill="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+							/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
